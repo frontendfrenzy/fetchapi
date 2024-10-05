@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Menu Icon -->
+    <div class="menu-icon" id="menu-icon">
+        &#9776; <!-- Menu icon (hamburger) -->
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" id="close-icon">
+            &times; <!-- Close icon (X) -->
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Main Content Area</h1>
+        <p>This is the main content of the page.</p>
+    </div>
+
+
+    <style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+/* Menu Icon */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hide the sidebar */
+    transition: 0.3s ease;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Close Icon */
+.close-icon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    text-align: right;
+}
+
+/* Transition for Sidebar Open State */
+.sidebar.active {
+    left: 0; /* Bring the sidebar into view */
+}
+
+/* Media Query for devices */
+@media only screen and (min-device-width: 720px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+    }
+}
+
+    </style>
+
+<script>
+// Get the menu and close icons, and sidebar elements
+const menuIcon = document.getElementById('menu-icon');
+const closeIcon = document.getElementById('close-icon');
+const sidebar = document.getElementById('sidebar');
+
+// Show sidebar when menu icon is clicked
+menuIcon.addEventListener('click', () => {
+    sidebar.classList.add('active');
+});
+
+// Hide sidebar when close icon is clicked
+closeIcon.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+});
+
+</script>
+</body>
+</html>
